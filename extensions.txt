@@ -1,0 +1,21 @@
+Auto Correct
+Background
+Better Commands
+Bracket Pair Colorization Toggler
+Chrome Dinosaur Game
+Clock in status bar
+Code Runner
+Compare View
+Competitive Programming Helper (cph)
+Error Lens
+focus
+homescreen
+Include Autocomplete
+IonicIconPicker
+JetBrains New UI File Icon Theme Extended
+Multi Rename
+Sort lines
+Theme in Status Bar
+vscode-pdf
+wpm monitor
+Mechanical Keyboard Sound
