@@ -1,0 +1,162 @@
+{
+    "debug.onTaskErrors": "debugAnyway",
+    "editor.fontSize": 17,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "workbench.editorAssociations": {
+        "*.zip": "default",
+        "*.vsix": "default"
+    },
+    // "background.enabled": true,
+    // "background.useDefault": false,
+    // "background.customImages": [
+    //     "file:///C:/Users/User/Pictures/Saved%20Pictures/nature.jpg"
+    // ],
+    // "background.style": {
+    //     "content": "''",
+    //     "pointer-events": "none",
+    //     "position": "absolute",
+    //     "z-index": "99999",
+    //     "width": "100%",
+    //     "height": "100%",
+    //     "background-position": "center",
+    //     "background-repeat": "no-repeat",
+    //     "background-size": "cover",
+    //     "opacity": 0.2
+    // },
+    "workbench.iconTheme": "jetbrains-file-icon-theme-dark",
+
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.intelliSenseUpdateDelay": 500,
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.autocomplete": "default",
+    "C_Cpp.loggingLevel": "Warning",
+    "files.autoSave": "afterDelay",
+    
+
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "code-runner.runInTerminal": true,
+    "code-runner.singleTerminal": true,
+    "code-runner.executorMap": {
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $fileNameWithoutExt"
+    },
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveFileBeforeRun": true,
+    "breadcrumbs.enabled": true,
+    "editor.stickyScroll.enabled": false,
+    "synthwave84.enableGlowingEffect": true,
+    "CPcodeforces.userHandle": "Ekber_Ekber",
+    "window.zoomLevel": 0,
+
+    "auto-correct.dictionary": [
+        {
+        "languages": ["*"],
+        "words": {
+            "itn": "int",
+            "contienu": "continue",
+            "İNF": "INF",
+            "logn": "long",
+            "şş": ">>",
+            "&I": "&i"
+        },
+        "useLargeList": false
+        }
+    ],
+
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#40FFE7",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "debug",
+            "color": "#009478",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "powermode.shake.enabled": false,
+    "animations.Install-Method": "Apc Customize UI++",
+    "apc.imports": [
+        "file:///c:/Users/User/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    ],
+
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.copyToOtherFile",
+            "sequence": [
+            "editor.action.selectAll",
+            "editor.action.clipboardCopyAction",
+            {
+                "command": "workbench.action.files.openFile",
+                "args": {
+                "filePath": "/tam/yol/hedefDosya.cpp"
+                }
+            },
+            "editor.action.selectAll",
+            "editor.action.clipboardPasteAction",
+            "workbench.action.files.save"
+            ]
+        }
+    ],
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.minimap.enabled": false,
+    "warmUp.changeTypingMode": "code snippets",
+    "warmUp.changeCount": "15",
+    "warmUp.switchProgrammingLanguage": "cpp",
+    "editor.fontFamily": "JetBrains Mono",
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.fontLigatures": true,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "focus",
+    "background.enabled": true,
+    "background.windowBackgrounds": [
+        "c:/Users/User/Pictures/Saved Pictures/nature.jpg"
+    ],
+
+    
+}
