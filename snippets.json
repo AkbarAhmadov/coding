@@ -1,0 +1,271 @@
+{
+	"Start": {
+		"prefix": "cd",
+		"body": [
+			"#include <bits/stdc++.h>", 
+			"#define GOOD_LUCK ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);",
+			"#define int long long",
+			"#define endl \"\\n\"",
+			"#define ff first",
+			"#define ss second",
+			"#define pb push_back",
+			"#define all(v) v.begin(), v.end()",
+			"using namespace std;",
+			"",
+			"constexpr int MAX = 2e+5 + 1, INF = 2e+16, MOD = 1e+9 + 7, K = 31;",
+			"",
+			"void _() {",
+			"\t$0",
+			"}",
+			"",
+			"signed main() {",
+			"",
+			"\tGOOD_LUCK",
+			"",
+			"\tint tests=1;",
+			"\tcin >> tests;",
+			"\tfor (int i=1; i <= tests; i++) {",
+			"\t\t_();",
+			"\t\tcout << endl;",
+			"\t}",
+			"",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Started Code"
+	},
+
+	"Segment Tree": {
+		"prefix": "call_seg",
+		"body": [
+			"struct SegTree{",
+            "\tint n;",
+            "\tvector <int> a, t;",
+            "\tvoid init(int n1, vector <int> &v) {",
+            "\t\tn = n1;",
+            "\t\ta = v;",
+            "\t\tt.resize(4*(n+2));",
+            "\t}",
+            "\tint merge(int a, int b) {",
+            "\t\treturn min(a, b)$0;       // TODO",
+            "\t}",
+            "\tvoid build(int v, int tl, int tr) {",
+            "\t\tif (tl == tr) {",
+            "\t\t\tt[v] = a[tl];",
+            "\t\t\treturn;",
+            "\t\t}",
+            "\t\tint tm = (tl + tr) / 2;",
+            "\t\tbuild(2*v, tl, tm);",
+            "\t\tbuild(2*v+1, tm+1, tr);",
+            "\t\tt[v] = merge(t[v*2], t[v*2+1]);",
+            "\t}",
+            "\tint find(int v, int tl, int tr, int l, int r) {",
+            "\t\tif (l > r) return INF;      // TODO",
+            "\t\tif (tl == l && tr == r) return t[v];",
+            "\t\tint tm = (tl + tr) / 2;",
+            "\t\tint r1 = find(v*2, tl, tm, l, min(r, tm));",
+            "\t\tint r2 = find(v*2+1, tm+1, tr, max(l, tm+1), r);",
+            "\t\treturn merge(r1, r2);",
+            "\t}",
+            "\tvoid update(int v, int tl, int tr, int i, int x) {",
+            "\t\tif (tl == tr) {",
+            "\t\tt[v] = x;",
+            "\t\t\ta[tl] = x;",
+            "\t\t\treturn;",
+            "\t\t}",
+            "\t\tint tm = (tl + tr) / 2;",
+            "\t\tif (i <= tm) update(v*2, tl, tm, i, x);",
+            "\t\telse update(v*2+1, tm+1, tr, i, x);",
+            "\t\tt[v] = merge(t[v*2], t[v*2+1]);",
+            "\t}",
+            "\tint get(int l, int r) {",
+            "\t\treturn find(1, 0, n-1, l, r);",
+            "\t}",
+            "\tvoid upd(int i, int x) {",
+            "\t\tupdate(1, 0, n-1, i, x);",
+            "\t}",
+            "};"
+		],
+		"description": "Segment Tree"
+	},
+
+    "FenwickTree": {
+        "prefix": "call_bit",
+        "body": [
+            "struct BIT{",
+            "\tint n;",
+            "\tvector <int> t;",
+            "\tvoid init(int n1) {",
+            "\t\tn = n1;",
+            "\t\tt.assign(n+1, 0);",
+            "\t}",
+            "\tint get(int l, int r) {",
+            "\t\tif (l > r) return 0;",
+            "\t\tif (l != 1) return get(1, r) - get(1, l-1);",
+            "\t\tint res=0;",
+            "\t\twhile (r >= 1) {",
+            "\t\t\tres += t[r];",
+            "\t\t\tr -= (r & (-r));",
+            "\t\t}",
+            "\t\treturn res;",
+            "\t}",
+            "\tvoid upd(int i, int x) {",
+            "\t\twhile (i <= n) {",
+            "\t\t\tt[i] += x;",
+            "\t\t\ti += (i & (-i));",
+            "\t\t}",
+            "\t}",
+            "};"
+        ],
+        "description": "Fenwick Tree"
+    },
+
+    "Compress": {
+        "prefix": "call_press",
+        "body": [
+            "int compress(vector <int> &v) {",
+            "\tint n = v.size();",
+            "\tvector <pair<int, int>> x;",
+            "\tfor (int i=0; i < n; i++) x.pb({v[i], i});",
+            "\tsort(all(x));",
+            "\tint nxt=1;",
+            "\tfor (int i=0; i < n-1; i++) {",
+            "\t\tif (x[i].ff == x[i+1].ff) x[i].ff = nxt;",
+            "\t\telse x[i].ff = nxt++;",
+            "\t}",
+            "\tx.back().ff = nxt;",
+            "\tfor (auto &i : x) v[i.ss] = i.ff;",
+            "\treturn nxt;",
+            "}"        
+        ],
+        "description": "compress vector"
+    },
+
+    "DSU": {
+        "prefix": "call_dsu",
+        "body": [
+            "struct DSU{",
+            "\tint n;",
+            "\tvector <int> par;",
+            "\tvoid init(int n1) {",
+            "\t\tn = n1;",
+            "\t\tpar.assign(n+1, -1);",
+            "\t}",
+            "\tint get(int u) {",
+            "\t\tif (par[u] < 0) return u;",
+            "\t\treturn par[u] = get(par[u]);",
+            "\t}",
+            "\tbool un(int a, int b) {",
+            "\t\ta = get(a);",
+            "\t\tb = get(b);",
+            "\t\tif(a == b) return 0;",
+            "\t\tif (par[a] < par[b]) swap(a, b);",
+            "\t\tpar[b] += par[a];",
+            "\t\tpar[a] = b;",
+            "\t\treturn 1;",
+            "\t}",
+            "};"
+        ],
+        "description": "DSU"
+    },
+
+    "DFS": {
+        "prefix": "call_dfs",
+        "body": [
+            "void dfs(int u) {",
+            "\tcol[u] = 1;",
+            "\tfor (int &i : g[u]) {",
+            "\t\tif (!col[i]) dfs(i);",
+            "\t}",
+            "}"
+        ],
+        "description": "DFS in graph"
+    },
+
+    "DFS in TREE": {
+        "prefix": "call_dfst",
+        "body": [
+            "void dfs(int u, int c=-1) {",
+            "\tfor (int &i : g[u]) {",
+            "\t\tif (i == c) continue;",
+            "\t\tdfs(i, u);",
+            "\t}",
+            "}"
+        ],
+        "description": "DFS in tree"
+    },
+
+    "BFS": {
+        "prefix": "call_mo",
+        "body": [
+            "void bfs(int s) {",
+            "\tdis[s] = 0;",
+            "\tqueue<int> q;",
+            "\tq.push(s);",
+            "\tcol[s] = 1;",
+            "\twhile (!q.empty()) {",
+            "\t\tint u = q.front();",
+            "\t\tq.pop();",
+            "\t\tfor (int &i : g[u]) {",
+            "\t\t\tif (!col[i]) {",
+            "\t\t\t\tdis[i] = dis[u] + 1;",
+            "\t\t\t\tcol[i] = 1;",
+            "\t\t\t\tq.push(i);",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "BFS in graph"
+    },
+
+    "DIJKSTRA": {
+        "prefix": "call_dijkstra",
+        "body": [
+            "void dijkstra(int s) {",
+            "\tdis[s] = 0;",
+            "\tpriority_queue<pair<int, int>, vector <pair<int, int>>, greater<pair<int, int>>> q;",
+            "\tq.push({0, s});",
+            "\twhile (!q.empty()) {",
+            "\t\tint d = q.top().ff, u = q.top().ss;",
+            "\t\tq.pop();",
+            "\t\tif (d > dis[u]) continue;",
+            "\t\tfor (auto &i : g[u]) {",
+            "\t\t\tint to = i.ff, c = i.ss;",
+            "\t\t\tif (dis[to] > dis[u] + c) {",
+            "\t\t\t\tdis[to] = dis[u] + c;",
+            "\t\t\t\tpar[to] = u;",
+            "\t\t\t\tq.push({dis[to], to});",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "Dijkstra in graph"
+    },
+
+    "MO_SORT": {
+        "prefix": "call_mo",
+        "body": [
+            "\tsort(all(que), [&](auto &x1, auto &x2){",
+            "\t\tif (x1[0] / B == x2[0] / B) {",
+            "\t\t\tif ((x1[0] / B) % 2) return x1[1] < x2[1];",
+            "\t\t\treturn x1[1] > x2[1];",
+            "\t\t}",
+            "\t\treturn x1[0] < x2[0];",
+            "\t});"
+        ],
+        "description": "Sort for MO"
+    },
+
+    
+}
+/*
+    "": {
+        "prefix": "",
+        "body": [
+            
+        ],
+        "description": ""
+    },
+*/
