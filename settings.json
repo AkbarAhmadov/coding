@@ -1,29 +1,10 @@
 {
-    "debug.onTaskErrors": "debugAnyway",
-    "editor.fontSize": 17,
-    "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "workbench.editorAssociations": {
-        "*.zip": "default",
-        "*.vsix": "default"
-    },
-    // "background.enabled": true,
-    // "background.useDefault": false,
-    // "background.customImages": [
-    //     "file:///C:/Users/User/Pictures/Saved%20Pictures/nature.jpg"
-    // ],
-    // "background.style": {
-    //     "content": "''",
-    //     "pointer-events": "none",
-    //     "position": "absolute",
-    //     "z-index": "99999",
-    //     "width": "100%",
-    //     "height": "100%",
-    //     "background-position": "center",
-    //     "background-repeat": "no-repeat",
-    //     "background-size": "cover",
-    //     "opacity": 0.2
-    // },
-    "workbench.iconTheme": "jetbrains-file-icon-theme-dark",
+    "workbench.colorTheme": "focus",
+    "workbench.iconTheme": "jetbrains-file-icon-theme-auto",
+    "background.windowBackgrounds": [
+        "/home/ekber/İndirilenler/nature.jpg",
+        "/home/ekber/Downloads/nature.jpg"
+    ],
 
     "C_Cpp.intelliSenseEngine": "default",
     "C_Cpp.intelliSenseUpdateDelay": 500,
@@ -31,16 +12,16 @@
     "C_Cpp.autocomplete": "default",
     "C_Cpp.loggingLevel": "Warning",
     "files.autoSave": "afterDelay",
-    
 
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "code-runner.runInTerminal": true,
-    "code-runner.singleTerminal": true,
-    "code-runner.executorMap": {
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $fileNameWithoutExt"
-    },
-    "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.executorMap": {
+        "cpp": "g++ \"$fullFileName\" -o \"$fileNameWithoutExt\" && ./\"$fileNameWithoutExt\"",
+        "c": "gcc \"$fullFileName\" -o \"$fileNameWithoutExt\" && ./\"$fileNameWithoutExt\"",
+        "python": "python3 -u \"$fullFileName\""
+    },
+
     "breadcrumbs.enabled": true,
     "editor.stickyScroll.enabled": false,
     "synthwave84.enableGlowingEffect": true,
@@ -56,7 +37,8 @@
             "İNF": "INF",
             "logn": "long",
             "şş": ">>",
-            "&I": "&i"
+            "&I": "&i",
+            "(Int": "(int"
         },
         "useLargeList": false
         }
@@ -118,45 +100,11 @@
             "italic": false
         }
     ],
-    "powermode.shake.enabled": false,
-    "animations.Install-Method": "Apc Customize UI++",
-    "apc.imports": [
-        "file:///c:/Users/User/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    ],
-
-    "multiCommand.commands": [
-        {
-            "command": "multiCommand.copyToOtherFile",
-            "sequence": [
-            "editor.action.selectAll",
-            "editor.action.clipboardCopyAction",
-            {
-                "command": "workbench.action.files.openFile",
-                "args": {
-                "filePath": "/tam/yol/hedefDosya.cpp"
-                }
-            },
-            "editor.action.selectAll",
-            "editor.action.clipboardPasteAction",
-            "workbench.action.files.save"
-            ]
-        }
-    ],
+    "editor.fontSize": 17,
     "editor.cursorBlinking": "smooth",
+    "editor.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.minimap.enabled": false,
-    "warmUp.changeTypingMode": "code snippets",
-    "warmUp.changeCount": "15",
-    "warmUp.switchProgrammingLanguage": "cpp",
-    "editor.fontFamily": "JetBrains Mono",
-    "terminal.integrated.fontFamily": "monospace",
-    "editor.fontLigatures": true,
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "focus",
-    "background.enabled": true,
-    "background.windowBackgrounds": [
-        "c:/Users/User/Pictures/Saved Pictures/nature.jpg"
-    ],
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
 
-    
+
 }
