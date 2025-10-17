@@ -1,3 +1,7 @@
+/*
+    Run this code here: https://www.onlinegdb.com/online_c++_compiler
+    And select "Text" input.
+*/
 #include <bits/stdc++.h>
 #define GOOD_LUCK ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 #define int long long
