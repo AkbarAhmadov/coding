@@ -69,7 +69,7 @@
             "\t}",
             "\tvoid update(int v, int tl, int tr, int i, int x) {",
             "\t\tif (tl == tr) {",
-            "\t\tt[v] = x;",
+            "\t\t\tt[v] = x;",
             "\t\t\ta[tl] = x;",
             "\t\t\treturn;",
             "\t\t}",
@@ -309,7 +309,7 @@
         ],
         "description": "Implicit Seg Tree"
     },
-
+    
     
 }
 /*
