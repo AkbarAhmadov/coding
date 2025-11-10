@@ -196,7 +196,7 @@
     },
 
     "BFS": {
-        "prefix": "call_mo",
+        "prefix": "call_bfs",
         "body": [
             "void bfs(int s) {",
             "\tdis[s] = 0;",
@@ -267,7 +267,7 @@
             "\tint nxt=1;",
             "\tvoid init(int n1) {",
             "\t\tn = n1;",
-            "\t\tL.assign(MAX*4, -1), R.assign(MAX*4, -1), t.assign(MAX*4, -1);",
+            "\t\tL.assign(MAX*4, -1), R.assign(MAX*4, -1), t.assign(MAX*4, -1);\t\t// TODO",
             "\t}",
             "\tint merge(int a, int b) {",
             "\t\treturn max(a, b);\t\t   // TODO",
@@ -300,16 +300,42 @@
             "\t\tif (R[v] != -1) t[v] = merge(t[v], t[L[v]]);",
             "\t}",
             "\tint get(int l, int r) {",
-            "\t\treturn find(1, 0, n-1, l, r);",
+            "\t\treturn find(1, 0, n-1, l, r);\t\t//TODO",
             "\t}",
             "\tvoid upd(int i, int x) {",
-            "\t\tupdate(1, 0, n-1, i, x);",
+            "\t\tupdate(1, 0, n-1, i, x);\t\t// TODO",
             "\t}",
             "};"
         ],
         "description": "Implicit Seg Tree"
     },
-    
+    "My sort": {
+        "prefix": "call_mysort",
+        "body": [
+            "void mysort(vector <int> &v) {",
+            "\tint n = v.size();",
+            "\tvector <int> o = v;",
+            "\tint ma=*max_element(all(v));",
+            "\tint b = sqrt(ma * 2) + 10;",
+            "\tvector <int> id;",
+            "\tfor (int i = 0; i < n; i++) id.pb(i);",
+            "\tfor (int i = 0; i < 2; i++) {",
+            "\t\tvector <vector <int>> c(b);",
+            "\t\tfor (int &j : id) {",
+            "\t\t\tint x = v[j] % b;",
+            "\t\t\tv[j] /= b;",
+            "\t\t\tc[x].pb(j);",
+            "\t\t}",
+            "\t\tid.clear();",
+            "\t\tfor (int j = 0; j < b; j++) {",
+            "\t\t\tfor (int &z : c[j]) id.pb(z);",
+            "\t\t}",
+            "\t}",
+            "\tfor (int i=0; i < n; i++) v[i] = o[id[i]];",
+            "}"
+        ],
+        "description": "My sorting Algorithm"
+    },
     
 }
 /*
