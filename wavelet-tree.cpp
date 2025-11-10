@@ -1,4 +1,4 @@
-// Wavelet tree implementation v2.0
+// Wavelet tree implementation v2.1
 struct wavelet{
 	int mn, mx, nxt=1;
 	vector <vector <int>> t, pr;
@@ -36,7 +36,8 @@ struct wavelet{
 		if (t[L[v]].size()) build(L[v], tl, tm, a);
 		if (t[R[v]].size()) build(R[v], tm+1, tr, a);
 	}
-	int findk(int v, int tl, int tr, int l, int r, int k) {
+    void bld(vector <int> &v) { build(1, mn, mx, v); }
+    int findk(int v, int tl, int tr, int l, int r, int k) {
 		if (tl == tr) return tl;
 		int tm = (tl + tr) / 2;
 		int ct = pr[v][r+1] - pr[v][l];
@@ -44,4 +45,28 @@ struct wavelet{
 		else return findk(R[v], tm+1, tr, l - pr[v][l], r - pr[v][r+1], k - ct);
 	}
     int kth(int l, int r, int k) { return findk(1, mn, mx, l, r, k); }
+    int findsmallerk(int v, int tl, int tr, int l, int r, int k) {
+        if (l > r) return 0;
+        if (tl == tr) return r - l + 1;
+        int tm = (tl + tr) / 2;
+        if (k <= tm) {
+            return findsmallerk(L[v], tl, tm, pr[v][l], pr[v][r+1] - 1, k);
+        }
+        else {
+            return findsmallerk(R[v], tm+1, tr, l - pr[v][l], r - pr[v][r+1], k) + pr[v][r+1] - pr[v][l];
+        }
+    }
+    int smallk(int l, int r, int k) { return findsmallerk(1, mn, mx, l, r, k); }
+	int findbiggerk(int v, int tl, int tr, int l, int r, int k) {
+        if (l > r) return 0;
+        if (tl == tr) return r - l + 1;
+        int tm = (tl + tr) / 2;
+        if (k <= tm) {
+            return findbiggerk(L[v], tl, tm, pr[v][l], pr[v][r+1] - 1, k) + r - l + 1 - pr[v][r+1] + pr[v][l];
+        }
+        else {
+            return findbiggerk(R[v], tm+1, tr, l - pr[v][l], r - pr[v][r+1], k);
+        }
+    }
+	int bigk(int l, int r, int k) { return findbiggerk(1, mn, mx, l, r, k); }
 };
