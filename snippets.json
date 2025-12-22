@@ -511,6 +511,46 @@
             "}",
         ],
         "description": "Exponentiation, Inversion, Combination"
+    },
+
+    "Tree distances": {
+        "prefix": "call_tree",
+        "body": [
+            "void dfs(int u, int c=-1) {",
+            "\tin[u] = ++te;",
+            "\tfor (int &i : g[u]) {",
+            "\t\tif (i == c) continue;",
+            "\t\tp[i] = u;",
+            "\t\tlev[i] = lev[u] + 1;",
+            "\t\tdfs(i, u);",
+            "\t}",
+            "\tout[u] = ++te;",
+            "}",
+            "",
+            "bool is(int a, int b) {",
+            "\tif (in[a] <= in[b] && out[a] >= out[b]) return 1;",
+            "\telse return 0;",
+            "}",
+            "",
+            "void build(int n) {",
+            "\tfor (int i = 1; i <= n; i++) up[0][i] = p[i];",
+            "\tfor (int i = 1; i < K; i++) {",
+            "\t\tfor (int j = 1; j <= n; j++) {",
+            "\t\t\tup[i][j] = up[i-1][up[i-1][j]];",
+            "\t\t}",
+            "\t}",
+            "}",
+            "",
+            "int lca(int a, int b) {",
+            "\tif (is(a, b)) return a;",
+            "\tif (is(b, a)) return b;",
+            "\tfor (int i = K-1; i >= 0; i--) {",
+            "\t\tif (!is(up[i][a], b)) a = up[i][a];",
+            "\t}",
+            "\treturn up[0][a];",
+            "}",
+        ],
+        "description": "DFS, Binary Lifting, LCA, SubTree"
     }
 }
 /*
