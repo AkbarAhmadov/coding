@@ -16,13 +16,13 @@ using namespace std;
 
 constexpr int MAX = 2e+5 + 1, INF = 2e+16, MOD = 1e+9 + 7, K = 31;
 
-string NAME = "???", PREFIX = "???", DESC = "???";
+string NAME = "???", PREFIX = "???", DESC = "???";                  // Fill here
 
 signed main() {
 
     GOOD_LUCK
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     cout << '"' << NAME << '"' << ": {\n";
     cout << "\t" << '"' << "prefix" << '"' << ": " << '"' << PREFIX << '"' << ",\n";
