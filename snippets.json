@@ -169,32 +169,6 @@
         "description": "DSU"
     },
 
-    "DFS": {
-        "prefix": "call_dfs",
-        "body": [
-            "void dfs(int u) {",
-            "\tcol[u] = 1;",
-            "\tfor (int &i : g[u]) {",
-            "\t\tif (!col[i]) dfs(i);",
-            "\t}",
-            "}"
-        ],
-        "description": "DFS in graph"
-    },
-
-    "DFS in TREE": {
-        "prefix": "call_dfst",
-        "body": [
-            "void dfs(int u, int c=-1) {",
-            "\tfor (int &i : g[u]) {",
-            "\t\tif (i == c) continue;",
-            "\t\tdfs(i, u);",
-            "\t}",
-            "}"
-        ],
-        "description": "DFS in tree"
-    },
-
     "BFS": {
         "prefix": "call_bfs",
         "body": [
@@ -719,6 +693,24 @@
             "};",
         ],
         "description": "Line with struct",
+    },
+
+    "Build SPF": {
+        "prefix": "call_spf",
+        "body": [
+            "void build_spf(int n) {",
+            "\tspf.assign(n+2, 0);",
+            "\tfor (int i = 2; i <= n; i++) {",
+            "\t\tif (spf[i]) continue;",
+            "\t\tspf[i] = i;",
+            "\t\tif (1LL * i * i > n) continue;",
+            "\t\tfor (int j = i * i; j <= n; j += i) {",
+            "\t\t\tif (!spf[j]) spf[j] = i;",
+            "\t\t}",
+            "\t}",
+            "}",
+        ],
+        "description": "Smallest Prime Factor",
     },
 }
 /*
