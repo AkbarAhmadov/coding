@@ -2,6 +2,8 @@
     "workbench.colorTheme": "focus",
     "workbench.iconTheme": "jetbrains-file-icon-theme-auto",
     "background.windowBackgrounds": [
+        "/home/ekber/İndirilenler/nature.jpg",
+        "/home/ekber/Downloads/nature.jpg"
     ],
 
     "C_Cpp.intelliSenseEngine": "default",
@@ -108,5 +110,6 @@
     "terminal.integrated.fontFamily": "monospace",
     "background.useInvertedOpacity": true,
     "cph.general.defaultLanguage": "cpp",
+    "python.defaultInterpreterPath": "/sbin/python3.14",
 
 }
